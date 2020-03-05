@@ -48,8 +48,8 @@ def run_sagemaker_pytest_cmd(image):
 
 
     try:
-        subprocess.run(f"virtualenv {framework}_{job_type}", shell=True)
-        subprocess.run(f"source {framework}_{job_type}/bin/activate && pip install -r requirements.txt && deactivate", shell=True)
+        subprocess.run(f"virtualenv {tag}", shell=True)
+        subprocess.run(f"source {tag}/bin/activate && pip install -r requirements.txt && deactivate", shell=True)
 
     except subprocess.CalledProcessError as e:
         raise EnvironmentError("Can't activate the virtual env for running pytest commands")
